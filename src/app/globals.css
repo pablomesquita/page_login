@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --GreenPanel: linear-gradient(0deg, rgba(34, 197, 94, 0.50) 0%, rgba(34, 197, 94, 0.50) 100%), linear-gradient(to bottom right, #15803D 0%, #000 13%, #22C55E 25%, #000 37%, #14532D 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #15803D 0%, #000 13%, #22C55E 25%, #000 37%, #14532D 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #15803D 0%, #000 13%, #22C55E 25%, #000 37%, #14532D 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #15803D 0%, #000 13%, #22C55E 25%, #000 37%, #14532D 50%) top right / 50% 50% no-repeat;
 }
 
 @theme inline {
@@ -12,15 +13,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .bg-GreenPanel {
+    background: var(--GreenPanel);
   }
 }
+  
+  @media (max-width: 1023px) {
+    .hide-on-mobile {
+      display: none;
+    }
+  }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
