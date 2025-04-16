@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -16,10 +15,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     {
       label,
       isPassword = false,
-      showForgotPassword = false,
-      showRememberMe = false,
-      rememberMe = false,
-      onRememberMeChange,
       type,
       ...props
     },
@@ -71,28 +66,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-
-        {isPassword && showRememberMe && (
-          <div className="flex items-center gap-2 justify-between">
-            {isPassword && showForgotPassword && (
-              <Link href="" className="text-xs text-[#71717A] hover:text-blue-600 transition-colors">
-                Esqueceu sua senha?
-              </Link>
-            )}
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="remember-me"
-                checked={rememberMe}
-                onChange={(e) => onRememberMeChange?.(e.target.checked)}
-                className="cursor-pointer h-4 w-4 text-blue-500 rounded border-gray-300 focus:ring-blue-500"
-              />
-              <label htmlFor="remember-me" className="text-sm text-[#18181B]">
-                Manter conectado
-              </label>
-            </div>
-          </div>
-        )}
       </div>
     );
   }
