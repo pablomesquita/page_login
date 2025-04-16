@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,9 +15,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@layer utilities {
-  .bg-GreenPanel {
-    background: var(--GreenPanel);
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
   }
 }
   
@@ -25,9 +30,17 @@
     }
   }
 
+  @layer utilities {
+    .bg-GreenPanel {
+      background: var(--GreenPanel);
+    }
+  }
+    
+   
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
 }
+
